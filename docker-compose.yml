@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  app:
+    build: 
+      context: .
+      target: dev
+      dockerfile: docker/nextjs/Dockerfile
+    volumes:
+      - "./app:/app"
+    command: [ "yarn", "run", "dev" ]
+    ports:
+      - "3000:3000"
+      - "6006:6006"
+    tty: true
+    stdin_open: true
